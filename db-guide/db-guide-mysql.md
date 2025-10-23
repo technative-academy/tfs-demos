@@ -25,7 +25,6 @@ There are a number of advantages for separating information from presentation
 **Further learning**
 - [MySQL introduction](https://dev.mysql.com/doc/refman/8.0/en/introduction.html)
 - [What is a database - Wikipedia](https://en.wikipedia.org/wiki/Database)
-- [Relational databases explained - MDN](https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps/Databases)
 
 ---
 
@@ -77,7 +76,7 @@ These notes will then explain how to
 3. Query your database
 
 **Further learning**
-- [Database design basics](https://learn.microsoft.com/en-us/office/troubleshoot/access/database-design-basics)
+- [Database design basics](https://support.microsoft.com/en-us/office/database-design-basics-eb2159cf-1e30-401a-8084-bd4f9c9ca1f5)
 
 ---
 
