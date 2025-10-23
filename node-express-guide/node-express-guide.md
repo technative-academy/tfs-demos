@@ -308,6 +308,105 @@ Example using **chalk** to add colour to console output:
 
 ---
 
+
+## Routing and API endpoints
+
+Routing defines how your server responds to different URLs and HTTP methods.
+
+Each route represents a different path clients can request data from or send data to. For example, a front-end app might request `/planets` to get a list of planets, `/planets/1` to get a specific planet, or send data to `/planets` to add a new one.
+
+This separation of routes allows your API to handle multiple types of client requests in an organised way.
+
+Example:
+```js
+app.get('/planets', (req, res) => {
+  res.json([{ id: 1, name: 'Earth' }, { id: 2, name: 'Mars' }])
+})
+
+app.get('/planets/:id', (req, res) => {
+  const planetId = parseInt(req.params.id)
+  const planet = { id: planetId, name: 'Earth' }
+  res.json(planet)
+})
+
+app.post('/planets', (req, res) => {
+  const planet = req.body
+  res.status(201).json({ message: 'Planet created', planet })
+})
+```
+
+### Returning data types
+
+Express can return plain text, HTML, or JSON objects. JSON is most common for APIs because it’s easy to use with JavaScript on the front-end.
+
+Examples:
+```js
+// Plain text
+res.send('Hello from Express')
+
+// JSON
+res.json({ message: 'Data received successfully' })
+
+// Custom status codes
+res.status(404).json({ error: 'Planet not found' })
+```
+
+**Further learning**
+- [Express Routing Guide](https://expressjs.com/en/guide/routing.html)
+
+---
+
+## Serving static files
+
+Sometimes you’ll want to serve static files like images, CSS, or JavaScript directly from your server. Express provides a simple built-in middleware for this.
+
+Example:
+```js
+import express from 'express'
+const app = express()
+
+// Serve files from the 'public' directory
+app.use(express.static('public'))
+
+app.listen(3000, () => console.log('Server running on port 3000'))
+```
+
+Now, any file placed inside the `public` folder (for example `public/index.html` or `public/styles.css`) will be served automatically when requested by a client.
+
+This is useful for serving documentation, static front-end assets, or uploads.
+
+**Further learning**
+- [Express Static Middleware](https://expressjs.com/en/starter/static-files.html)
+
+---
+
+## Using try/catch and handling internal errors
+
+When working with asynchronous code (e.g. database calls or external APIs), you should always use `try/catch` blocks to handle unexpected errors.
+
+Example:
+```js
+app.get('/data', async (req, res) => {
+  try {
+    const data = await fetchDataFromDatabase()
+    res.json(data)
+  } catch (error) {
+    console.error('Error fetching data:', error)
+    res.status(500).json({ error: 'Internal server error' })
+  }
+})
+```
+
+### Why this matters
+
+If your server fails to handle an error, it can crash or leave clients hanging without a response. A 500 status code (`Internal Server Error`) signals to the client that something went wrong on the server side.
+
+In production, instead of using `console.error`, errors should be logged properly to a logging service such as Sentry for later review.
+
+Using error handling and logging ensures your API behaves predictably and safely even when things go wrong, and allows you to monitor issues.
+
+---
+
 ## Middleware
 
 Middleware are functions that run between receiving a request and sending a response. They are used for tasks such as parsing JSON, logging, authentication, and error handling
