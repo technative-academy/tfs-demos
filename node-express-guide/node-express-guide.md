@@ -407,6 +407,48 @@ Using error handling and logging ensures your API behaves predictably and safely
 
 ---
 
+## Request and response objects
+
+Every route handler in Express receives two main objects: `req` (the request) and `res` (the response).
+
+- `req` contains information about the incoming request, such as query parameters, headers, and the body.
+- `res` is used to send a response back to the client.
+
+Example:
+```js
+app.get('/greet', (req, res) => {
+  const name = req.query.name || 'visitor'
+  res.send(`Hello, ${name}`)
+})
+```
+
+Try visiting `http://localhost:3000/greet?name=Alice` and you’ll see:
+```
+Hello, Alice
+```
+
+**Further learning**
+- [Express Request Object](https://expressjs.com/en/api.html#req)
+- [Express Response Object](https://expressjs.com/en/api.html#res)
+
+---
+
+## HTTP methods in APIs
+
+Express lets you define routes using different HTTP methods, which represent the type of operation the client is performing.
+
+| Method | Purpose | Example |
+|---------|----------|----------|
+| GET | Retrieve data | `GET /planets` |
+| POST | Create new data | `POST /planets` |
+| PUT | Replace existing data | `PUT /planets/2` |
+| PATCH | Update part of existing data | `PATCH /planets/2` |
+| DELETE | Remove data | `DELETE /planets/2` |
+
+Keeping these methods separate helps make your API clear and predictable.
+
+---
+
 ## Middleware
 
 Middleware are functions that run between receiving a request and sending a response. They are used for tasks such as parsing JSON, logging, authentication, and error handling
@@ -425,6 +467,19 @@ Middleware runs in order, so put general-purpose ones (like logging) before rout
 
 **Further learning**
 - [Express Middleware Guide](https://expressjs.com/en/guide/using-middleware.html)
+
+---
+
+## Parsing incoming JSON
+
+By default, Express does not automatically read JSON bodies. You need to add a middleware to handle this.
+
+```js
+app.use(express.json())
+```
+
+This allows you to access data sent in the body of a `POST` or `PUT` request via `req.body`.
+
 
 ---
 
