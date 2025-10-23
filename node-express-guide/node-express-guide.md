@@ -428,27 +428,6 @@ Middleware runs in order, so put general-purpose ones (like logging) before rout
 
 ---
 
-## Routing and API endpoints
-
-Routing defines how your server responds to different URLs and HTTP methods
-
-Example:
-```js
-app.get('/planets', (req, res) => {
-  res.json([{ id: 1, name: 'Earth' }, { id: 2, name: 'Mars' }])
-})
-
-app.post('/planets', (req, res) => {
-  const planet = req.body
-  res.status(201).json({ message: 'Planet created', planet })
-})
-```
-
-**Further learning**
-- [Express Routing Guide](https://expressjs.com/en/guide/routing.html)
-
----
-
 ## Environment variables
 
 Store settings and credentials outside your code, such as API keys and database URLs
