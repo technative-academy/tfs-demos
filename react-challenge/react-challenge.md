@@ -178,7 +178,7 @@ mkdir src/assets/css
 
 To tidy up the `src` folder we can move our `index.css` file into the new `src/assets/css` folder.
 
-If we do this, we need to remember to update the reference to it in the `index.js` file:
+If we do this, we need to remember to update the reference to it in the `index.jsx` file:
 
 ```css
 import './assets/css/index.css';
@@ -274,12 +274,12 @@ We're not going to delete the App component from the repo because it might be a 
 
 Create a folder inside `components`, call it `App`, and move the four App-related files in there:
 
-- `App.js`
+- `App.jsx`
 - `App.css`
 - `logo.svg`
 - `App.test.js`
 
-We also need to remove the reference to the `App.js` file in our main `index.js` file, we no longer need it there as we're going to add our own content instead. We can replace it with an empty `<div/>` element for now - we'll replace it with the real content shortly.
+We also need to remove the reference to the `App.jsx` file in our main `index.jsx` file, we no longer need it there as we're going to add our own content instead. We can replace it with an empty `<div/>` element for now - we'll replace it with the real content shortly.
 
 If we look at our website in a browser now we should just see an empty page. That's fine, we'll add some content shortly!
 
@@ -288,7 +288,7 @@ If we look at our website in a browser now we should just see an empty page. Tha
 
 We're going to start with a `Root` component, this will be the first component in our new app.
 
-We don't _need_ to have a `Root` component, it just keeps our core page structure tidy, and separated from our `index.js` file.
+We don't _need_ to have a `Root` component, it just keeps our core page structure tidy, and separated from our `index.jsx` file.
 
 ```
 mkdir components/Root
@@ -311,7 +311,7 @@ export default Root;
 
 We will replace the default text shortly, it's just in there for now to check that it renders as expected in our app.
 
-Update the main `src/index.js` file - import this new `Root` component (rather than the old `App` component that was there previously):
+Update the main `src/index.jsx` file - import this new `Root` component (rather than the old `App` component that was there previously):
 
 ```jsx
 import React from 'react';
@@ -602,7 +602,7 @@ We can add React Router with the following command:
 npm install --save react-router-dom
 ```
 
-The [React Router tutorial](https://reactrouter.com/en/main/start/tutorial) is a good reference for how this works.
+The [React Router tutorial](https://reactrouter.com/6.30.1/start/tutorial) is a good reference for how this works.
 
 
 ### Adding the router to our app
@@ -642,11 +642,11 @@ And corresponding file CSS:
 (You would follow the same pattern for a Home component, replacing `About` with `Home`)
 
 
-#### routes.js
+#### routes.jsx
 
 We want to set up a file where we can reference all our routes and their corresponding components.
 
-We'll create a new file called `routes.js` in the `src` folder.
+We'll create a new file called `routes.jsx` in the `src` folder.
 
 This is where we list all of the new views we just created, in the `children` array of the `Root` view:
 
@@ -676,9 +676,9 @@ export default routes;
 ```
 
 
-#### index.js
+#### index.jsx
 
-Now we have a file for our routes, we can add the router to our `index.js` file - note that we have replaced the `Root` component that we had here before:
+Now we have a file for our routes, we can add the router to our `index.jsx` file - note that we have replaced the `Root` component that we had here before:
 
 ```jsx
 import React from "react";
