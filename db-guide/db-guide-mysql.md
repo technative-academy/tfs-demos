@@ -333,7 +333,7 @@ We will also use a many-to-many relationship for **moons to categories**
 | 4  | 3       | 1           |
 
 **Further learning**
-- [MySQL foreign keys and referential integrity](https://dev.mysql.com/doc/refman/8.0/en/innodb-foreign-key-constraints.html)
+- [MySQL foreign key constraints](https://dev.mysql.com/doc/refman/8.4/en/create-table-foreign-keys.html)
 
 ---
 
