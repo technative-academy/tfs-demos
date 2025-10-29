@@ -233,7 +233,8 @@ Use predictable, hierarchical paths
 Simple path rules
 - Use lower case and hyphens in path segments such as `/space-missions`
 - Put ids in the path. Use query parameters for filtering and sorting
-- Avoid verbs in paths. Use methods to express actions. For an action that does not fit CRUD, consider a subresource such as `/missions/{id}/trajectory` and update it with `PUT` or `PATCH`
+- Avoid verbs in paths
+- Use HTTP methods to express actions
 - Consider adding a version number prefix such as `/v1` - this allows you to upgrade the API in future with breaking changes
 
 **Read more**
