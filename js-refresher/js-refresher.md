@@ -73,6 +73,10 @@ And some CSS:
     font-size: 48px;
     text-shadow: 2px 2px 2px green;
 }
+
+.orange {
+    color: orange;
+}
 ```
 
 Open the HTML file in a web browser (e.g. Firefox).
