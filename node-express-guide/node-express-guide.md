@@ -542,7 +542,7 @@ Cookies store small bits of data in the browser, such as session information
 
 ## CORS (Cross-Origin Resource Sharing)
 
-CORS allows your front-end app (running on a different port) to make API calls to your back-end
+CORS allows your front-end app (which will likely be running on a different domain or port) to make API calls to your back-end
 
 1. Install
    ```bash
